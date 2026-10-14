@@ -34,7 +34,8 @@
     "H0",
     23.7
    ]
-  ]
+  ],
+  "you": []
  },
  "infeasible": 12,
  "accepted": 0.992,
@@ -756,7 +757,7 @@
   "mssv": "202602588",
   "town": "B",
   "quick": false,
-  "step": "all",
+  "step": "mine",
   "salted": false,
   "budgets": {
    "replay_n": 400,

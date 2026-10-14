@@ -27,7 +27,7 @@
   },
   "export": {
    "quick": false,
-   "at": "2026-10-14 18:06"
+   "at": "2026-10-14 18:42"
   },
   "fix": {
    "quick": false,
@@ -35,14 +35,14 @@
   },
   "mine": {
    "quick": false,
-   "at": "2026-10-14 18:06"
+   "at": "2026-10-14 18:39"
   }
  },
  "_run": {
   "mssv": "202602588",
   "town": "B",
   "quick": false,
-  "step": "all",
+  "step": "export",
   "salted": false,
   "budgets": {
    "replay_n": 400,

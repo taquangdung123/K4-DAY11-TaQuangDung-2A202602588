@@ -161,5 +161,9 @@ Cả hai nghe an toàn hơn nhưng fail tăng 5–6 lần. Thế giới phản �
   - Phép thử chỉ thử phanh, không thử đánh lái. Những vụ né được bằng đánh lái sang làn trống vẫn bị tính `unavoidable`, nên theo hướng này nó **đếm ít đi**.
 - **Hình:** `evidence/shots/q9_jaywalker.png` (chương 9, kịch bản GB-02, va chạm lúc 19,6 s).
   ![jaywalker](evidence/shots/q9_jaywalker.png)
-- **Bạn tự lái thì sao:** mình chưa thử tự lái trong chương 10 (không có `egoAcc` trong `hazard.json`, `mine.json: exact` chỉ có `planner`).
+- **Bạn tự lái thì sao:** mình lái thử trên đúng cảnh gốc, ghi thành chuỗi bàn đạp `hazard.json: egoAcc` (`ego = "script"`, cùng định dạng chương 10 lưu khi bấm "Bạn"). Cách lái: giữ ga như planner tới lúc thấy người bước ra khỏi lề (20,3 s; cảm biến thấy ngay, không bị che), cộng thời gian phản ứng 1,5 s của người, rồi phanh đều 4 m/s², nhẹ hơn mức tối đa μg = 4,9 m/s² của đường ướt. Kết quả `mine.json: exact.you = []`: **không va chạm**, còn `exact.planner = [ego–H0 lúc 23,7 s]`. Khác biệt nằm ở **lúc bắt đầu phanh**, không phải ở mức phanh:
+  - Planner thấy người từ 20,3 s nhưng vẫn **tăng tốc** (a ≈ +0,3 đến +0,7 m/s², từ 9,8 lên 11,3 m/s), vì người còn ở làn bên kia và chưa thành "xe phía trước".
+  - Planner chỉ phanh hết cỡ (−4,9 m/s²) lúc 23,3 s, khi người đã bước vào làn xe ta, cách khoảng 6 m. Lúc đó đã quá muộn.
+  - Người lái thì đoán được "người này sẽ băng qua tới làn mình" và nhả ga, phanh sớm. Thử thêm trên cùng cảnh với phanh 6 m/s²: phản ứng trong vòng 2,4 s vẫn tránh được; từ 2,6 s trở đi thì va chạm.
+  - Cũng phải nói: mình đã biết trước cảnh này sẽ xảy ra, planner thì không. Nhưng 2,4 s vẫn dư so với thời gian phản ứng thông thường của người lái (khoảng 1–1,5 s).
 - **Cách sửa:** `cutinLat` không liên quan. `pedBuffer` và `cautionV` chỉ tác dụng gần vạch qua đường bị che, không giúp ở giữa phố. Planner cần **logic mới**: theo dõi mọi người đi bộ cảm biến thấy ở lề hoặc lòng đường (không chỉ ở vạch), dự đoán quỹ đạo cắt ngang làn của họ. Nếu thời gian tới điểm cắt của người và của xe ta chồng nhau trong biên an toàn, thì giảm tốc hoặc dừng ngay, thay vì chờ tới khi người đã đứng trong làn mới coi là chướng ngại.
