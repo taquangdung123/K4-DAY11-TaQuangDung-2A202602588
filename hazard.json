@@ -1,0 +1,47 @@
+{
+ "format": "avsim-studio/1",
+ "params": {
+  "cutT0": 6.673395729287451,
+  "cutDur": 2.484132668125156,
+  "cutV": 14.041991396373755,
+  "cutDs": -1.4812773332415343,
+  "pedT0": 14.787252330958642,
+  "pedV": 1.1670419296373418,
+  "busGo": 14.656881276715712,
+  "tgT": 1.2305014287216198,
+  "cutGap": 3.511786402835411,
+  "pedGap": 13.317676346007232,
+  "mu": 0.5,
+  "pedLook": 1,
+  "cutBrake": 0.0,
+  "civil": true
+ },
+ "policy": {},
+ "hazards": [
+  {
+   "x": 176.82,
+   "side": "S",
+   "v": 1.87,
+   "t0": 0,
+   "trig": 38.49,
+   "type": "ped"
+  }
+ ],
+ "ego": "planner",
+ "space": {
+  "h0_x": [
+   150,
+   300
+  ],
+  "h0_v": [
+   1.0,
+   2.2
+  ],
+  "h0_trig": [
+   15,
+   45
+  ]
+ },
+ "exposure": 0.05,
+ "why": "Người băng ngang giữa phố, không có vạch, từ lề phải (nam), đúng làn xe ta. Chọn vì planner chỉ có luật thận trọng (cautionV, pedBuffer) cho vạch qua đường sau xe buýt; người bước ra chỗ khác không có luật đó. space: h0_x 150-300 m là đoạn phố sau xe buýt, xa vạch có sẵn (người đi bộ chỉ băng ngang khi xa vạch); h0_v 1.0-2.2 m/s: từ người đi chậm (người già ~1.0 m/s) tới đi vội/chạy chậm, quanh tốc độ đi bộ thiết kế ~1.2-1.5 m/s trong các sổ tay thiết kế đường (HCM/MUTCD); h0_trig 15-45 m: người băng ngang chọn khe khi xe còn cách khoảng 2-5 s ở 9-12 m/s, tức 15-45 m, ứng với khe chấp nhận thường gặp trong các nghiên cứu gap acceptance của người đi bộ. exposure 0.05: giả định khoảng 1 trên 20 chuyến đi trong phố đô thị có một người băng ngang giữa phố ngay trước xe ta, trong tầm 15-45 m. Đây là ước lượng thô, không có số đo; cần dữ liệu thật (đếm người băng ngang trên mỗi km từ camera giao thông hoặc log đội xe) để thay."
+}
